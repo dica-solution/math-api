@@ -1,46 +1,44 @@
 # Math API
 
-[![workflow-badge]][workflow-url]
-
-[workflow-badge]: https://github.com/uetchy/math-api/workflows/Math%20API/badge.svg
-[workflow-url]: https://github.com/uetchy/math-api/actions?workflow=Math%20API
-
 Place LaTeX Math equation on anywhere as `<img>` tag.
 
-https://math.now.sh
+https://math.giainhanh.vn
 
 ## Usage
 
+### Image format (svg or png)
+
+#### Normal
 ```
-curl https://math.now.sh?from=\sum^{N}_{i}x_i
+<img src="https://math.giainhanh.vn/img?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
 ```
 
-### HTML
+#### Inline
+```
+<img src="https://math.giainhanh.vn/img?inline=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
+```
+### Mathml format
 
 ```
-<img src="https://math.now.sh?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
+curl https://math.giainhanh.vn/mathml?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}
 ```
-
-<img src="https://math.now.sh?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
-
-```
-<img src="https://math.now.sh?inline=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
-```
-
-<img src="https://math.now.sh?inline=\log\prod^N_{i}x_i=\sum^N_i\log{x_i}" />
-    
-### Markdown
-
-```
-![](https://math.now.sh?from=\LaTeX)
-```
-
-![Equation 1](https://math.now.sh?from=\LaTeX)
 
 ## Option
 
-### **.svg** extension
+### **.svg** or **.png** extension
 
 URL ends with **.svg** extension will be treated as a normal math formula.
 
 Some Markdown blog services won't treat image tags correctly whose URL has no any image extension in it. This option may give fixes to these situations.
+```
+<img src="https://math.giainhanh.vn/img?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}.png" />
+```
+### Optional input format type
+Math-api support latex, asciimath and mathml
+```
+<img src="https://math.giainhanh.vn/img?from=root(4)(x)&type=asciimath" />
+```
+### Output format type:
++ svg
++ png
++ mathml
