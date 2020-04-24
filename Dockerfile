@@ -7,3 +7,4 @@ COPY adaptor.ts index.ts tsconfig.json ./
 RUN yarn run tsc
 
 USER node
+CMD ["yarn", "start"]
