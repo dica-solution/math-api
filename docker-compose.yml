@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  webapp:
+    build: .
+    command: yarn start
+    ports: 
+      - 80:8080

@@ -4,10 +4,8 @@
   "version": "1.0.0",
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "scripts": {
-    "deploy": "now",
-    "dev": "now dev",
-    "rollout": "now --target production && now rm math --safe",
-    "test": "jest"
+    "build": "tsc index.ts",
+    "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -15,7 +13,9 @@
     "express": "^4.17.1",
     "helmet": "^3.21.3",
     "mathjax-full": "^3.0.1",
-    "svg2img": "^0.6.1"
+    "svg2img": "^0.6.1",
+    "typescript": "^3.8.3",
+    "@types/node": "*"
   },
   "devDependencies": {
     "@now/node": "^1.4.1",
@@ -28,8 +28,7 @@
     "jest": "^25.1.0",
     "jest-circus": "^25.1.0",
     "supertest": "^4.0.2",
-    "ts-jest": "^25.2.1",
-    "typescript": "^3.8.3"
+    "ts-jest": "^25.2.1"
   },
   "repository": {
     "type": "git",
