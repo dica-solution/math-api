@@ -44,8 +44,8 @@ export function svg2png(svgString: string): Promise<Buffer> {
       .slice(1)
       .map(s => parseFloat(s));
     const args = {
-      width: `${width * 3}ex`,
-      height: `${height * 3}ex`,
+      width: `${width * 2}ex`,
+      height: `${height * 2}ex`,
     };
     svg2img(svgString, args, function(error: Error, buffer: Buffer) {
       if (error) {
