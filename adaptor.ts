@@ -17,7 +17,7 @@ RegisterHTMLHandler(adaptor);
 export function tex2svg(equation: string, type: string, isInline: boolean, color: string): string {
   let input = {}
   if (type=="mathml") {
-    input = new MathML({})
+    input = new MathML({forceReparse: true})
   } else if (type=="asciimath") {
     input = new AsciiMath({});
   } else {
@@ -68,6 +68,6 @@ export function toMathml(equation: string, type: string, isInline: boolean): str
   const visitor = new SerializedMmlVisitor();
 
   const toMathML = (node: any):string => visitor.visitDefault(node,"");
- 
+
   return toMathML(html.convert(equation, {display: !isInline}));
 }
