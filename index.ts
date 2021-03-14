@@ -89,9 +89,9 @@ app.get('/img', async (req, res, next) => {
 });
 
 // welcome page
-// app.get('/', function(req, res) {
-//   res.redirect(301, '/home');
-// });
+app.get('/', function(req, res) {
+   res.send('Hello honeycomb');
+});
 
 const PORT = process.env.PORT || 8080;
 
