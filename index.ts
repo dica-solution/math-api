@@ -2,9 +2,11 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import { tex2svg, svg2png, toMathml } from './adaptor';
+import morgan from "morgan";
 
 const app = express();
 
+app.use(morgan("tiny"));
 // Helmet
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,6 +21,7 @@ app.get('/mathml', async (req, res, next) => {
     return next();
   }
   const isInline = mode === 'inline';
+  // @ts-ignore
   const equation = (isInline ? req.query.inline : req.query.from).toString();
   if (equation.match(/\.ico$/)) {
     return next();
@@ -51,6 +54,7 @@ app.get('/img', async (req, res, next) => {
       return next();
     }
     const isInline = mode === 'inline';
+    // @ts-ignore
     const equation = (isInline ? req.query.inline : req.query.from).toString();
     if (equation.match(/\.ico$/)) {
       return next();
